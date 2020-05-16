@@ -14,7 +14,7 @@ import java.util.UUID;
 
 @Service
 @AllArgsConstructor
-public class ConversionService {
+public class ExchangeConversionService {
 
     private final ExchangeRateService exchangeRateService;
 

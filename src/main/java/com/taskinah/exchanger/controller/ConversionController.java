@@ -2,7 +2,7 @@ package com.taskinah.exchanger.controller;
 
 import com.taskinah.exchanger.entity.Transaction;
 import com.taskinah.exchanger.model.ConversionRequest;
-import com.taskinah.exchanger.service.ConversionService;
+import com.taskinah.exchanger.service.ExchangeConversionService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
@@ -24,7 +24,7 @@ import java.util.Date;
 @AllArgsConstructor
 public class ConversionController {
 
-    private final ConversionService conversionCurrencyService;
+    private final ExchangeConversionService conversionCurrencyService;
 
     @PostMapping("")
     public ResponseEntity<Transaction> convert(@RequestBody ConversionRequest request) {

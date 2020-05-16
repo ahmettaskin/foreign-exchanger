@@ -13,10 +13,10 @@ import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 
 @RunWith(MockitoJUnitRunner.class)
-public class ConversionServiceTest {
+public class ExchangeConversionServiceTest {
 
     @InjectMocks
-    private ConversionService conversionService;
+    private ExchangeConversionService exchangeConversionService;
 
     @Mock
     private ExchangeRateService exchangeRateService;
@@ -34,7 +34,7 @@ public class ConversionServiceTest {
         Mockito.when(exchangeRateService.getExchangeRate(request.getSourceCurrency(),request.getTargetCurrency())).thenReturn(6.95);
 
         //when
-        conversionService.convert(request);
+        exchangeConversionService.convert(request);
 
         //then
         Mockito.verify(repository, Mockito.times(1)).save(ArgumentMatchers.any(Transaction.class));
@@ -51,6 +51,6 @@ public class ConversionServiceTest {
         Mockito.when(exchangeRateService.getExchangeRate(request.getSourceCurrency(),request.getTargetCurrency())).thenReturn(null);
 
         //when
-        conversionService.convert(request);
+        exchangeConversionService.convert(request);
     }
 }
